@@ -41,7 +41,7 @@ jobs:
         run: zip -r green-tunnel-macos.zip green-tunnel.app
 
       - name: Save to Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: builds
           path: ./gui/release-builds/green-tunnel-darwin-x64/green-tunnel-macos.zip
@@ -77,7 +77,7 @@ jobs:
         run: npm run windows-installer
 
       - name: Save to Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: builds
           path: ./gui/release-builds/green-tunnel/windows-installer/green-tunnel-installer.exe
@@ -123,7 +123,7 @@ jobs:
         run: zip -r green-tunnel-debian.zip *.deb
 
       - name: Save to Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: builds
           path: ./gui/release-builds/green-tunnel-debian.zip
@@ -133,7 +133,7 @@ jobs:
     needs: [build-for-mac, build-for-windows, build-for-linux]
     steps:
       - name: Download Builds
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: builds
 
